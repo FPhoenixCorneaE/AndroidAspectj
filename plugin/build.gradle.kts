@@ -12,11 +12,14 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        create("version") {
+        create(Deps.GradlePlugin.name) {
             // 自定义 plugin 的 id，其他 module 引用要用到
-            id = "com.fphoenixcorneae.aspectj"
+            id = Deps.GradlePlugin.id
             // 实现这个插件的类的路径
-            implementationClass = "com.fphoenixcorneae.aspectj.plugin.AspectjPlugin"
+            implementationClass = Deps.GradlePlugin.implementationClass
+            displayName = Deps.GradlePlugin.displayName
+            description = Deps.GradlePlugin.description
+            version = Deps.GradlePlugin.version
         }
     }
 }

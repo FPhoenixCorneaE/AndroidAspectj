@@ -17,6 +17,10 @@ import org.gradle.api.logging.Logger
 import org.gradle.api.tasks.compile.JavaCompile
 import java.io.File
 
+/**
+ * @desc：AspectjPlugin
+ * @date：2021-06-23 10:50
+ */
 class AspectjPlugin : Plugin<Project> {
 
     companion object {

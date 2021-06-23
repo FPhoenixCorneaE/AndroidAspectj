@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
-//    id("com.fphoenixcorneae.aspectj")
+    //    id("com.fphoenixcorneae.aspectj")
 }
 
 android {
@@ -73,7 +73,7 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(Deps.Kotlin.stdlib)
+    implementation(enforcedPlatform(Deps.Kotlin.bom))
     implementation(Deps.AndroidX.appcompat)
     implementation(Deps.AndroidX.constraintLayout)
     implementation(Deps.AndroidX.coreKtx)

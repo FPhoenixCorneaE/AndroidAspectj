@@ -10,6 +10,16 @@ object Deps {
         const val versionName = "1.0.0"
     }
 
+    /** GradlePlugin */
+    object GradlePlugin {
+        const val name = "PhoenixAspectj"
+        const val id = "com.fphoenixcorneae.aspectj"
+        const val implementationClass = "com.fphoenixcorneae.aspectj.plugin.AspectjPlugin"
+        const val displayName = "android aspectj gradle plugin."
+        const val description = "a gradle plugin for android aspectj."
+        const val version = "1.0.0"
+    }
+
     /** BuildType */
     object BuildType {
         const val Debug = "debug"
@@ -18,7 +28,7 @@ object Deps {
 
     /** Kotlin */
     object Kotlin {
-        const val version = "1.5.10"
+        private const val version = "1.5.10"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$version"
         const val bom = "org.jetbrains.kotlin:kotlin-bom:$version"

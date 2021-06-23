@@ -66,11 +66,11 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(Deps.Kotlin.stdlib)
+    implementation(enforcedPlatform(Deps.Kotlin.bom))
     implementation(Deps.AndroidX.appcompat)
     implementation(Deps.AndroidX.coreKtx)
     api(Deps.Aspectj.aspectjRt)
-    api(project(mapOf("path" to ":annotation")))
+//    api(project(mapOf("path" to ":annotation")))
     // test
     testImplementation(Deps.Test.junit)
     androidTestImplementation(Deps.Test.junitExt)
