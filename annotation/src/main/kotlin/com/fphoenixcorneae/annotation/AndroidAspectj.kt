@@ -1,7 +1,7 @@
-package com.fphoenixcorneae.aspectj
+package com.fphoenixcorneae.annotation
 
 /**
- * @desc：Usage：在想要拦截的注解之上添加 @PhoenixAspectj 注解
+ * @desc：Usage：在想要拦截的 annotation class 之上添加 @AndroidAspectj 注解
  * @date：2021-06-23 15:08
  */
 @kotlin.annotation.Retention(AnnotationRetention.BINARY)

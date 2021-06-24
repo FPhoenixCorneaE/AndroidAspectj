@@ -1,6 +1,6 @@
 package com.fphoenixcorneae.compiler
 
-import com.fphoenixcorneae.aspectj.AndroidAspectj
+import com.fphoenixcorneae.annotation.AndroidAspectj
 import com.squareup.javapoet.*
 import java.io.IOException
 import java.util.*
@@ -12,7 +12,7 @@ import javax.lang.model.element.TypeElement
 import javax.lang.model.util.Elements
 
 /**
- * @desc：@PhoenixAspectj 注解处理器
+ * @desc：@AndroidAspectj 注解处理器
  * @date：2021-06-23 15:40
  */
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
@@ -66,8 +66,8 @@ class AspectjProcessor : AbstractProcessor() {
                     IllegalStateException::class.java)
                 .addStatement("MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();")
                 .addStatement(classElement.simpleName.toString() + " annotation = methodSignature.getMethod().getAnnotation(" + classElement.simpleName + ".class);")
-                .addStatement("\$T.notifyHandler(" + classElement.simpleName + ".class,joinPoint)",
-                    ClassName.get("com.fphoenixcorneae.aspectj", "PhoenixAspectj"))
+                .addStatement("\$T.notifyHandler(" + classElement.simpleName + ".class, joinPoint)",
+                    ClassName.get("com.fphoenixcorneae.aspectj", "AspectjHandler"))
                 .build()
             val aspectj = TypeSpec.classBuilder(classElement.simpleName.toString() + "_Aspectj")
                 .addModifiers(Modifier.PUBLIC, Modifier.FINAL)

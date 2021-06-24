@@ -6,7 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.fphoenixcorneae.aspectj.PhoenixAspectj
+import com.fphoenixcorneae.aspectj.AspectjHandler
 import com.fphoenixcorneae.aspectj.demo.databinding.ActivityMainBinding
 
 
@@ -24,14 +24,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             onClick = this@MainActivity
         }
 
-        PhoenixAspectj.init { cls, joinPoint ->
+        AspectjHandler.init { cls, joinPoint ->
             Log.d(
-                "PhoenixAspectj",
+                "AndroidAspectj",
                 "notifyHandler() called with: clazz = [$cls], joinPoint = [$joinPoint]"
             )
             try {
                 if (cls == MustLogin::class.java) {
-                    Log.d("PhoenixAspectj", "@MustLogin annotation method call")
+                    Log.d("AndroidAspectj", "@MustLogin annotation method call")
                 } else {
                     joinPoint.proceed()
                 }

@@ -6,7 +6,7 @@ import org.aspectj.lang.ProceedingJoinPoint
  * @desc：通知点处理程序
  * @date：2021-06-23 16:36
  */
-object PhoenixAspectj {
+object AspectjHandler {
 
     @Volatile
     private var mPointHandler: ((Class<*>, ProceedingJoinPoint) -> Unit)? = null
@@ -16,6 +16,7 @@ object PhoenixAspectj {
         mPointHandler = pointHandler
     }
 
+    @JvmStatic
     @Synchronized
     fun notifyHandler(cls: Class<*>, joinPoint: ProceedingJoinPoint) {
         mPointHandler?.invoke(cls, joinPoint)

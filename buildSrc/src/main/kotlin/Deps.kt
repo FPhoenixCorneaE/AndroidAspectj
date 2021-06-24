@@ -6,13 +6,13 @@ object Deps {
         const val buildToolsVersion = "30.0.3"
         const val minSdkVersion = 21
         const val targetSdkVersion = 30
-        const val versionCode = 103
-        const val versionName = "1.0.3"
+        const val versionCode = 104
+        const val versionName = "1.0.4"
     }
 
     /** GradlePlugin */
     object GradlePlugin {
-        const val name = "PhoenixAspectj"
+        const val name = "AndroidAspectj"
         const val id = "com.fphoenixcorneae.aspectj"
         const val implementationClass = "com.fphoenixcorneae.aspectj.plugin.AspectjPlugin"
         const val displayName = "android aspectj gradle plugin."
