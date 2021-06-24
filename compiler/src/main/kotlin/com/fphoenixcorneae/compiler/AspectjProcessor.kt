@@ -36,7 +36,6 @@ class AspectjProcessor : AbstractProcessor() {
     }
 
     override fun process(annotations: Set<TypeElement>, roundEnv: RoundEnvironment): Boolean {
-        println("AspectjProcessor: process() call")
         val aspectjElements = roundEnv.getElementsAnnotatedWith(AndroidAspectj::class.java)
         for (element in aspectjElements) {
             val classElement = element as TypeElement

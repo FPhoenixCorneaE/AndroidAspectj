@@ -10,7 +10,7 @@ buildscript {
         classpath(Deps.Android.buildToolsGradle)
         classpath(Deps.Kotlin.gradlePlugin)
         classpath(Deps.Aspectj.aspectjTools)
-//        classpath("com.github.FPhoenixCorneaE:aspectj-plugin:1.0.1")
+//        classpath("com.github.FPhoenixCorneaE.PhoenixAspectj:aspectj-plugin:1.0.2")
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle.kts files
     }
