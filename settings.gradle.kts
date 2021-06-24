@@ -3,4 +3,4 @@ include(":aspectj")
 include(":annotation")
 include(":compiler")
 include(":plugin")
-rootProject.name = "PhoenixAspectj"
+rootProject.name = "AndroidAspectj"
