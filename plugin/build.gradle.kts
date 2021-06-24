@@ -1,6 +1,16 @@
 plugins {
+    id("java-library")
     `kotlin-dsl`
     `maven-publish`
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenCentral()
 }
 
 dependencies {
@@ -23,3 +33,46 @@ gradlePlugin {
         }
     }
 }
+
+// MavenPublication 配置-------------------------------------------------------------
+
+// 指定编码
+tasks.withType(JavaCompile::class) {
+    options.encoding = "UTF-8"
+}
+// 打包源码
+task("sourcesJar", Jar::class) {
+    from("src/main/kotlin")
+    archiveClassifier.convention("sources")
+    archiveClassifier.set("sources")
+}
+
+// 制作文档(Javadoc)
+task("javadocJar", Jar::class) {
+    archiveClassifier.convention("javadoc")
+    archiveClassifier.set("javadoc")
+    val javadoc = tasks.getByName("javadoc") as Javadoc
+    from(javadoc.destinationDir)
+}
+
+artifacts {
+    val sourcesJar = tasks.getByName("sourcesJar")
+    val javadocJar = tasks.getByName("javadocJar")
+    archives(sourcesJar)
+    archives(javadocJar)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "mavenJava".
+            create<MavenPublication>("mavenJava") {
+                from(components["java"])
+                groupId = "com.github.FPhoenixCorneaE"
+                artifactId = project.name
+                version = Deps.Android.versionName
+            }
+        }
+    }
+}
+

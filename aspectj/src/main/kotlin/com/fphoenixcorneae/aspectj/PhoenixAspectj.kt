@@ -9,15 +9,15 @@ import org.aspectj.lang.ProceedingJoinPoint
 object PhoenixAspectj {
 
     @Volatile
-    private var sHandler: PointHandler? = null
+    private var mPointHandler: ((Class<*>, ProceedingJoinPoint) -> Unit)? = null
 
     @Synchronized
-    fun init(pointHandler: PointHandler) {
-        sHandler = pointHandler
+    fun init(pointHandler: ((cls: Class<*>, joinPoint: ProceedingJoinPoint) -> Unit)? = null) {
+        mPointHandler = pointHandler
     }
 
     @Synchronized
     fun notifyHandler(cls: Class<*>, joinPoint: ProceedingJoinPoint) {
-        sHandler?.onHandlePoint(cls, joinPoint)
+        mPointHandler?.invoke(cls, joinPoint)
     }
 }

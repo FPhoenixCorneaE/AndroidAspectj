@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     kotlin("android")
+    kotlin("kapt")
+    `maven-publish`
 }
 
 android {
@@ -70,9 +72,25 @@ dependencies {
     implementation(Deps.AndroidX.appcompat)
     implementation(Deps.AndroidX.coreKtx)
     api(Deps.Aspectj.aspectjRt)
-//    api(project(mapOf("path" to ":annotation")))
+    api(project(mapOf("path" to ":annotation")))
     // test
     testImplementation(Deps.Test.junit)
     androidTestImplementation(Deps.Test.junitExt)
     androidTestImplementation(Deps.Test.espresso)
+}
+
+// MavenPublication 配置-------------------------------------------------------------
+
+afterEvaluate {
+    (this as ExtensionAware).extensions.configure<PublishingExtension>("publishing") {
+        publications {
+            // Creates a Maven publication called "release".
+            create<MavenPublication>(Deps.BuildType.Release) {
+                from(components[Deps.BuildType.Release])
+                groupId = "com.github.FPhoenixCorneaE"
+                artifactId = project.name
+                version = project.version.toString()
+            }
+        }
+    }
 }
