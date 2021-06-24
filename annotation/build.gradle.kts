@@ -44,8 +44,8 @@ afterEvaluate {
             create<MavenPublication>("mavenJava") {
                 from(components["java"])
                 groupId = "com.github.FPhoenixCorneaE"
-                artifactId = project.name
-                version = Deps.Android.versionName
+                artifactId = "aspectj-annotation"
+                version = project.version.toString()
             }
         }
     }

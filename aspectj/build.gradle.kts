@@ -88,7 +88,7 @@ afterEvaluate {
             create<MavenPublication>(Deps.BuildType.Release) {
                 from(components[Deps.BuildType.Release])
                 groupId = "com.github.FPhoenixCorneaE"
-                artifactId = project.name
+                artifactId = "aspectj"
                 version = project.version.toString()
             }
         }
