@@ -6,8 +6,8 @@ object Deps {
         const val buildToolsVersion = "30.0.3"
         const val minSdkVersion = 21
         const val targetSdkVersion = 30
-        const val versionCode = 101
-        const val versionName = "1.0.1"
+        const val versionCode = 102
+        const val versionName = "1.0.2"
     }
 
     /** GradlePlugin */

@@ -11,7 +11,7 @@ java {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(enforcedPlatform(Deps.Kotlin.bom))
+    implementation(Deps.Kotlin.stdlib)
     implementation(Deps.Java.poet)
     implementation(project(mapOf("path" to ":annotation")))
 }

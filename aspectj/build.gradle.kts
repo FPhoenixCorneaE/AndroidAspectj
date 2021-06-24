@@ -68,7 +68,7 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(enforcedPlatform(Deps.Kotlin.bom))
+    implementation(Deps.Kotlin.stdlib)
     implementation(Deps.AndroidX.appcompat)
     implementation(Deps.AndroidX.coreKtx)
     api(Deps.Aspectj.aspectjRt)
