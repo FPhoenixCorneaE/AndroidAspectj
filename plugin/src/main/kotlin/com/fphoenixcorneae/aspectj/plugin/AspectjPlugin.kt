@@ -82,9 +82,9 @@ class AspectjPlugin : Plugin<Project> {
                     val kotlinArgs = arrayOf(
                         CMD_SHOW_WEAVE_INFO,
                         CMD_JAVA_1_8,
-                        CMD_IN_PATH, project.buildDir.path + "/tmp/kotlin-classes/" + fullName,
+                        CMD_IN_PATH, project.buildDir.path + "\\tmp\\kotlin-classes\\" + fullName,
                         CMD_ASPECT_PATH, javaCompile.classpath.asPath,
-                        CMD_OUTPUT_DIR, project.buildDir.path + "/tmp/kotlin-classes/" + fullName,
+                        CMD_OUTPUT_DIR, project.buildDir.path + "\\tmp\\kotlin-classes\\" + fullName,
                         CMD_CLASS_PATH, javaCompile.classpath.asPath,
                         CMD_BOOT_CLASS_PATH, project.run {
                             if (hasApp) {
@@ -96,8 +96,8 @@ class AspectjPlugin : Plugin<Project> {
                             }
                         }
                     )
-                    log.lifecycle("ajc javaArgs: $javaArgs")
-                    log.lifecycle("ajc kotlinArgs: $kotlinArgs")
+                    log.lifecycle("ajc javaArgs: ${javaArgs.contentToString()}")
+                    log.lifecycle("ajc kotlinArgs: ${kotlinArgs.contentToString()}")
 
                     val messageHandler = MessageHandler(true)
                     Main().run(javaArgs, messageHandler)

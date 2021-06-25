@@ -10,8 +10,16 @@ object Deps {
         const val versionName = "1.0.4"
     }
 
-    /** GradlePlugin */
-    object GradlePlugin {
+    object FPhoenixCorneaE {
+        private const val version = Android.versionName
+        const val aspectj = "com.github.FPhoenixCorneaE.AndroidAspectj:aspectj:${version}"
+        const val aspectjPlugin = "com.github.FPhoenixCorneaE.AndroidAspectj:aspectj-plugin:${version}"
+        const val aspectjCompiler = "com.github.FPhoenixCorneaE.AndroidAspectj:aspectj-compiler:${version}"
+        const val localAspectjPlugin = "AndroidAspectj:plugin:${version}"
+    }
+
+    /** AspectjPlugin */
+    object AspectjPlugin {
         const val name = "AndroidAspectj"
         const val id = "com.fphoenixcorneae.aspectj"
         const val implementationClass = "com.fphoenixcorneae.aspectj.plugin.AspectjPlugin"

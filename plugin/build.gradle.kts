@@ -22,14 +22,14 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        create(Deps.GradlePlugin.name) {
+        create(Deps.AspectjPlugin.name) {
             // 自定义 plugin 的 id，其他 module 引用要用到
-            id = Deps.GradlePlugin.id
+            id = Deps.AspectjPlugin.id
             // 实现这个插件的类的路径
-            implementationClass = Deps.GradlePlugin.implementationClass
-            displayName = Deps.GradlePlugin.displayName
-            description = Deps.GradlePlugin.description
-            version = Deps.GradlePlugin.version
+            implementationClass = Deps.AspectjPlugin.implementationClass
+            displayName = Deps.AspectjPlugin.displayName
+            description = Deps.AspectjPlugin.description
+            version = Deps.AspectjPlugin.version
         }
     }
 }
@@ -73,6 +73,11 @@ afterEvaluate {
                 version = project.version.toString()
             }
         }
+//        repositories {
+//            maven {
+//                url = uri("../repos")
+//            }
+//        }
     }
 }
 
