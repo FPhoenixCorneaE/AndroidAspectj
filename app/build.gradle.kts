@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
-//    id("com.fphoenixcorneae.aspectj")
+    id("com.fphoenixcorneae.aspectj")
 }
 
 android {
@@ -77,8 +77,10 @@ dependencies {
     implementation(Deps.AndroidX.appcompat)
     implementation(Deps.AndroidX.constraintLayout)
     implementation(Deps.AndroidX.coreKtx)
-    implementation(project(mapOf("path" to ":aspectj")))
-    kapt(project(mapOf("path" to ":compiler")))
+    implementation(Deps.FPhoenixCorneaE.aspectj)
+    kapt(Deps.FPhoenixCorneaE.aspectjCompiler)
+//    implementation(project(mapOf("path" to ":aspectj")))
+//    kapt(project(mapOf("path" to ":compiler")))
     testImplementation(Deps.Test.junit)
     androidTestImplementation(Deps.Test.junitExt)
     androidTestImplementation(Deps.Test.espresso)

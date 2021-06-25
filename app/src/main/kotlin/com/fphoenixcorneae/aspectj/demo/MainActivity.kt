@@ -31,6 +31,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             )
             try {
                 when (cls) {
+                    OnClick::class.java -> {
+                        Log.d("AndroidAspectj", "onClick() call")
+                        joinPoint.proceed()
+                    }
                     MustLogin::class.java -> {
                         Log.d("AndroidAspectj", "@MustLogin annotation method call")
                     }
