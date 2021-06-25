@@ -1,9 +1,6 @@
 package com.fphoenixcorneae.aspectj.plugin
 
-import com.android.build.gradle.AppExtension
-import com.android.build.gradle.AppPlugin
-import com.android.build.gradle.LibraryExtension
-import com.android.build.gradle.LibraryPlugin
+import com.android.build.gradle.*
 import com.android.build.gradle.api.BaseVariant
 import org.aspectj.bridge.IMessage
 import org.aspectj.bridge.MessageHandler
@@ -18,7 +15,10 @@ import java.io.File
 import java.util.*
 
 /**
- * @desc：AspectjPlugin
+ * @desc：AspectjPlugin: Making AspectJ to work with Android Kotlin Language
+ *       参考：https://fernandocejas.com/2014/08/03/aspect-oriented-programming-in-android
+ *       stackoverflow：https://stackoverflow.com/questions/44364633/aspectj-doesnt-work-with-kotlin
+ *       OKAspectj：https://github.com/TanZhiL/OkAspectj
  * @date：2021-06-23 10:50
  */
 class AspectjPlugin : Plugin<Project> {
@@ -44,10 +44,16 @@ class AspectjPlugin : Plugin<Project> {
 
         val log: Logger = project.logger
         log.warn("Aspectj Plugin Started!")
-        val variants: DomainObjectSet<out BaseVariant>? = if (hasApp) {
-            project.extensions.findByType(AppExtension::class.java)?.applicationVariants
+
+        val android: BaseExtension? = if (hasApp) {
+            project.extensions.findByType(AppExtension::class.java)
         } else {
-            project.extensions.findByType(LibraryExtension::class.java)?.libraryVariants
+            project.extensions.findByType(LibraryExtension::class.java)
+        }
+        val variants: DomainObjectSet<out BaseVariant>? = if (hasApp) {
+            (android as? AppExtension)?.applicationVariants
+        } else {
+            (android as? LibraryExtension)?.libraryVariants
         }
 
         variants?.all {
@@ -69,15 +75,7 @@ class AspectjPlugin : Plugin<Project> {
                         CMD_ASPECT_PATH, javaCompile.classpath.asPath,
                         CMD_OUTPUT_DIR, javaCompile.destinationDir.toString(),
                         CMD_CLASS_PATH, javaCompile.classpath.asPath,
-                        CMD_BOOT_CLASS_PATH, project.run {
-                            if (hasApp) {
-                                project.extensions.findByType(AppExtension::class.java)
-                                    ?.bootClasspath?.asArgument
-                            } else {
-                                project.extensions.findByType(LibraryExtension::class.java)
-                                    ?.bootClasspath?.asArgument
-                            }
-                        }
+                        CMD_BOOT_CLASS_PATH, android?.bootClasspath?.asArgument
                     )
                     val kotlinArgs = arrayOf(
                         CMD_SHOW_WEAVE_INFO,
@@ -86,16 +84,9 @@ class AspectjPlugin : Plugin<Project> {
                         CMD_ASPECT_PATH, javaCompile.classpath.asPath,
                         CMD_OUTPUT_DIR, project.buildDir.path + "\\tmp\\kotlin-classes\\" + fullName,
                         CMD_CLASS_PATH, javaCompile.classpath.asPath,
-                        CMD_BOOT_CLASS_PATH, project.run {
-                            if (hasApp) {
-                                project.extensions.findByType(AppExtension::class.java)
-                                    ?.bootClasspath?.asArgument
-                            } else {
-                                project.extensions.findByType(LibraryExtension::class.java)
-                                    ?.bootClasspath?.asArgument
-                            }
-                        }
+                        CMD_BOOT_CLASS_PATH, android?.bootClasspath?.asArgument
                     )
+
                     log.lifecycle("ajc javaArgs: ${javaArgs.contentToString()}")
                     log.lifecycle("ajc kotlinArgs: ${kotlinArgs.contentToString()}")
 

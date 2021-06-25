@@ -6,8 +6,8 @@ object Deps {
         const val buildToolsVersion = "30.0.3"
         const val minSdkVersion = 21
         const val targetSdkVersion = 30
-        const val versionCode = 104
-        const val versionName = "1.0.4"
+        const val versionCode = 105
+        const val versionName = "1.0.5"
     }
 
     object FPhoenixCorneaE {
@@ -39,7 +39,6 @@ object Deps {
         private const val version = "1.5.10"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$version"
-        const val bom = "org.jetbrains.kotlin:kotlin-bom:$version"
     }
 
     /** AndroidX */
@@ -55,9 +54,9 @@ object Deps {
         const val aspectjTools = "org.aspectj:aspectjtools:1.9.6"
     }
 
-    /** Java */
-    object Java {
-        const val poet = "com.squareup:javapoet:1.13.0"
+    /** Poet */
+    object Poet {
+        const val kotlin = "com.squareup:kotlinpoet:1.9.0"
     }
 
     /** Test */

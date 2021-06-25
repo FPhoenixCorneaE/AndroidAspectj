@@ -30,10 +30,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 "notifyHandler() called with: clazz = [$cls], joinPoint = [$joinPoint]"
             )
             try {
-                if (cls == MustLogin::class.java) {
-                    Log.d("AndroidAspectj", "@MustLogin annotation method call")
-                } else {
-                    joinPoint.proceed()
+                when (cls) {
+                    MustLogin::class.java -> {
+                        Log.d("AndroidAspectj", "@MustLogin annotation method call")
+                    }
+                    else -> {
+                        joinPoint.proceed()
+                    }
                 }
             } catch (throwable: Throwable) {
                 throwable.printStackTrace()
