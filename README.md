@@ -33,7 +33,7 @@ allprojects {
 ```kotlin
 plugins {
     kotlin("kapt")
-    id("com.fphoenixcorneae.aspectj")
+    id("com.FPhoenixCorneaE.aspectj")
 }
 
 dependencies {

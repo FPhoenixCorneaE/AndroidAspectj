@@ -1,13 +1,13 @@
 object Deps {
     /** Android */
     object Android {
-        const val buildToolsGradle = "com.android.tools.build:gradle:4.2.1"
-        const val compileSdkVersion = 30
-        const val buildToolsVersion = "30.0.3"
+        const val buildToolsGradle = "com.android.tools.build:gradle:7.0.3"
+        const val compileSdkVersion = 31
+        const val buildToolsVersion = "31.0.0"
         const val minSdkVersion = 21
-        const val targetSdkVersion = 30
-        const val versionCode = 105
-        const val versionName = "1.0.5"
+        const val targetSdkVersion = 31
+        const val versionCode = 106
+        const val versionName = "1.0.6"
     }
 
     object FPhoenixCorneaE {
@@ -21,7 +21,7 @@ object Deps {
     /** AspectjPlugin */
     object AspectjPlugin {
         const val name = "AndroidAspectj"
-        const val id = "com.fphoenixcorneae.aspectj"
+        const val id = "com.FPhoenixCorneaE.aspectj"
         const val implementationClass = "com.fphoenixcorneae.aspectj.plugin.AspectjPlugin"
         const val displayName = "android aspectj gradle plugin."
         const val description = "a gradle plugin for android aspectj."
@@ -36,16 +36,16 @@ object Deps {
 
     /** Kotlin */
     object Kotlin {
-        private const val version = "1.5.10"
+        private const val version = "1.6.0"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$version"
     }
 
     /** AndroidX */
     object AndroidX {
-        const val appcompat = "androidx.appcompat:appcompat:1.2.0"
-        const val coreKtx = "androidx.core:core-ktx:1.3.2"
-        const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.4"
+        const val appcompat = "androidx.appcompat:appcompat:1.4.0"
+        const val coreKtx = "androidx.core:core-ktx:1.7.0"
+        const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.1.2"
     }
 
     /** Aspectj */

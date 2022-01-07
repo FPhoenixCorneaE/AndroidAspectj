@@ -1,0 +1,94 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "AndroidAspectj",
+    "module": "plugin",
+    "version": "1.0.6",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.0.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "plugin-1.0.6.jar",
+          "url": "plugin-1.0.6.jar",
+          "size": 11101,
+          "sha512": "1100c3bd8fd715625b8a4984525f7e86b103be8a9b562b532ec704a61503f5c20b2d91249d3b7266d4b8c0e619bec735d462933abc6220e65a81469499d98ef2",
+          "sha256": "500b99136a9c192e80075d9036925b927423203f386ba7a8935a54e9a05f4712",
+          "sha1": "4f329af95b3f75ef13c7ffb867d1da953ae34f41",
+          "md5": "557d41f501b0ec7069abaddc5ba0aac0"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "com.android.tools.build",
+          "module": "gradle",
+          "version": {
+            "requires": "7.0.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-gradle-plugin",
+          "version": {
+            "requires": "1.6.0"
+          }
+        },
+        {
+          "group": "org.aspectj",
+          "module": "aspectjrt",
+          "version": {
+            "requires": "1.9.6"
+          }
+        },
+        {
+          "group": "org.aspectj",
+          "module": "aspectjtools",
+          "version": {
+            "requires": "1.9.6"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "plugin-1.0.6.jar",
+          "url": "plugin-1.0.6.jar",
+          "size": 11101,
+          "sha512": "1100c3bd8fd715625b8a4984525f7e86b103be8a9b562b532ec704a61503f5c20b2d91249d3b7266d4b8c0e619bec735d462933abc6220e65a81469499d98ef2",
+          "sha256": "500b99136a9c192e80075d9036925b927423203f386ba7a8935a54e9a05f4712",
+          "sha1": "4f329af95b3f75ef13c7ffb867d1da953ae34f41",
+          "md5": "557d41f501b0ec7069abaddc5ba0aac0"
+        }
+      ]
+    }
+  ]
+}

@@ -2,21 +2,21 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
-    id("com.fphoenixcorneae.aspectj")
+    id("com.FPhoenixCorneaE.aspectj")
 }
 
 android {
-    compileSdkVersion(Deps.Android.compileSdkVersion)
-    buildToolsVersion(Deps.Android.buildToolsVersion)
+    compileSdk = Deps.Android.compileSdkVersion
+    buildToolsVersion = Deps.Android.buildToolsVersion
 
     defaultConfig {
-        applicationId("com.fphoenixcorneae.aspectj.demo")
-        minSdkVersion(Deps.Android.minSdkVersion)
-        targetSdkVersion(Deps.Android.targetSdkVersion)
+        applicationId = "com.fphoenixcorneae.aspectj.demo"
+        minSdk = Deps.Android.minSdkVersion
+        targetSdk = Deps.Android.targetSdkVersion
         versionCode = Deps.Android.versionCode
         versionName = Deps.Android.versionName
 
-        testInstrumentationRunner("androidx.test.runner.AndroidJUnitRunner")
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -48,19 +48,15 @@ android {
     }
 
     compileOptions {
-        targetCompatibility = JavaVersion.VERSION_1_8
-        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
-    dexOptions {
-        jumboMode = true
-    }
-
-    lintOptions {
+    lint {
         isCheckReleaseBuilds = false
         isAbortOnError = false
     }
@@ -77,10 +73,10 @@ dependencies {
     implementation(Deps.AndroidX.appcompat)
     implementation(Deps.AndroidX.constraintLayout)
     implementation(Deps.AndroidX.coreKtx)
-    implementation(Deps.FPhoenixCorneaE.aspectj)
-    kapt(Deps.FPhoenixCorneaE.aspectjCompiler)
-//    implementation(project(mapOf("path" to ":aspectj")))
-//    kapt(project(mapOf("path" to ":compiler")))
+//    implementation(Deps.FPhoenixCorneaE.aspectj)
+//    kapt(Deps.FPhoenixCorneaE.aspectjCompiler)
+    implementation(project(mapOf("path" to ":aspectj")))
+    kapt(project(mapOf("path" to ":compiler")))
     testImplementation(Deps.Test.junit)
     androidTestImplementation(Deps.Test.junitExt)
     androidTestImplementation(Deps.Test.espresso)
