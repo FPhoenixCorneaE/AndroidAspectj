@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
-    id("com.FPhoenixCorneaE.aspectj")
+//    id("com.FPhoenixCorneaE.aspectj")
 }
 
 android {
