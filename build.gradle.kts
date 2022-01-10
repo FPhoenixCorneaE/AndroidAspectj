@@ -11,7 +11,7 @@ buildscript {
         classpath(Deps.Android.buildToolsGradle)
         classpath(Deps.Kotlin.gradlePlugin)
         classpath(Deps.Aspectj.aspectjTools)
-//        classpath(Deps.FPhoenixCorneaE.aspectjPlugin)
+        classpath(Deps.FPhoenixCorneaE.aspectjPlugin)
 //        classpath(Deps.FPhoenixCorneaE.localAspectjPlugin)
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle.kts files
